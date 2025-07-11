@@ -1,0 +1,92 @@
+[
+    {
+        "sha": "b876c676e792d2dc98e48d5ce82d336d2f977141",
+        "author": "SALCAN",
+        "date": "2025-07-10T20:58:43Z",
+        "message": "BUG: Fix Index.equals between object and string (#61541)"
+    },
+    {
+        "sha": "e635c3e4c8bc817fb33c3005649648b9d7c22599",
+        "author": "jbrockmendel",
+        "date": "2025-07-10T16:47:37Z",
+        "message": "TST[string]: update expecteds for using_string_dtype to fix xfails (#61727)\n\n* TST: update expecteds for using_string_dtype to fix xfails\n\n* Update to_dict_of_blocks test to hardcode object dtype\n\n* Comment\n\n* Split test, update expected, targeted xfails\n\n* Update json test\n\n* revert commented-out"
+    },
+    {
+        "sha": "f94b430126efbe4a3078f95e90846a4d6161448a",
+        "author": "Matthew Roeschke",
+        "date": "2025-07-09T21:47:41Z",
+        "message": "CI: Remove PyPy references in CI testing (#61814)"
+    },
+    {
+        "sha": "d5f97ed21a872c2ea0bbe2a1de8b4242ec6a58d1",
+        "author": "Pedro Diogo",
+        "date": "2025-07-08T15:48:22Z",
+        "message": "feature #49580: support new-style float_format string in to_csv (#61650)\n\n* feature #49580: support new-style float_format string in to_csv\n\nfeat(to_csv): support new-style float_format strings using str.format\n\nDetect and process new-style format strings (e.g., \"{:,.2f}\") in the\nfloat_format parameter of to_csv.\n\n- Check if float_format is a string and matches new-style pattern\n- Convert it to a callable (e.g., lambda x: float_format.format(x))\n- Ensure compatibility with NaN values and mixed data types\n- Improves formatting output for floats when exporting to CSV\n\nExample:\ndf = pd.DataFrame([1234.56789, 9876.54321])\ndf.to_csv(float_format=\"{:,.2f}\")  # now outputs formatted values like\n1,234.57\n\nCo-authored-by: Pedro Santos <pedro.filipe.santos@tecnico.ulisboa.pt>\n\n* update benchmark test\n\n* fixed pre commit\n\n* fixed offsets.pyx\n\n* fixed tests to windows\n\n* Update pandas/io/formats/format.py\n\nCo-authored-by: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>\n\n* Update pandas/io/formats/format.py\n\nCo-authored-by: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>\n\n* Update pandas/io/formats/format.py\n\nCo-authored-by: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>\n\n* updated v3.0.0.rst and fixed tm.assert_produces_warning\n\n* fixed test_new_style_with_mixed_types_in_column added match to assert_produces_warning\n\n* Update doc/source/whatsnew/v3.0.0.rst (removed reference to this PR)\n\nCo-authored-by: Simon Hawkins <simonjayhawkins@gmail.com>\n\n* fixed pre-commit\n\n* removed tm.assert_produces_warning\n\n* fixed space\n\n* fixed pre-commit\n\n---------\n\nCo-authored-by: Pedro Santos <pedro.filipe.santos@tecnico.ulisboa.pt>\nCo-authored-by: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>\nCo-authored-by: Simon Hawkins <simonjayhawkins@gmail.com>"
+    },
+    {
+        "sha": "d1a245c1bf58f503403c23e64c641f85045534b9",
+        "author": "Matthew Roeschke",
+        "date": "2025-07-08T15:44:41Z",
+        "message": "DEPS: Bump NumPy and tzdata (#61806)\n\n* Bump numpy\n\n* Bump numpy\n\n* Bump tzdata\n\n* ignore pytables usage, update xfail condition"
+    },
+    {
+        "sha": "7c2796d134e74f613cbfd85137d6809f5abf39a4",
+        "author": "pre-commit-ci[bot]",
+        "date": "2025-07-07T18:09:15Z",
+        "message": "[pre-commit.ci] pre-commit autoupdate (#61802)\n\n* [pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/astral-sh/ruff-pre-commit: v0.11.12 → v0.12.2](https://github.com/astral-sh/ruff-pre-commit/compare/v0.11.12...v0.12.2)\n- [github.com/MarcoGorelli/cython-lint: v0.16.6 → v0.16.7](https://github.com/MarcoGorelli/cython-lint/compare/v0.16.6...v0.16.7)\n- [github.com/pre-commit/mirrors-clang-format: v20.1.5 → v20.1.7](https://github.com/pre-commit/mirrors-clang-format/compare/v20.1.5...v20.1.7)\n- [github.com/trim21/pre-commit-mirror-meson: v1.8.1 → v1.8.2](https://github.com/trim21/pre-commit-mirror-meson/compare/v1.8.1...v1.8.2)\n\n* [pre-commit.ci] auto fixes from pre-commit.com hooks\n\nfor more information, see https://pre-commit.ci\n\n* Rename method\n\n* ignore PLW0177\n\n* Noqa test\n\n---------\n\nCo-authored-by: pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>\nCo-authored-by: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>"
+    },
+    {
+        "sha": "fea4f5b0312e74f5eb7fa054dec41b7a9bf540e2",
+        "author": "jbrockmendel",
+        "date": "2025-07-07T17:09:59Z",
+        "message": "REF: remove unreachable, stronger typing in parsers.pyx (#61785)\n\n* REF: remove unreachable, stronger typing in parsers.pyx\n\n* mypy fixup"
+    },
+    {
+        "sha": "b5e441eb728d46d040cc268e083b79098c20c25f",
+        "author": "jbrockmendel",
+        "date": "2025-07-07T16:54:30Z",
+        "message": "BUG: Decimal(NaN) incorrectly allowed in ArrowEA constructor with tim… (#61773)\n\n* BUG: Decimal(NaN) incorrectly allowed in ArrowEA constructor with timestamp type\n\n* GH ref\n\n* BUG: ArrowEA constructor with timestamp type\n\n* mypy fixup\n\n* mypy fixup"
+    },
+    {
+        "sha": "16fd2082a6694628a3a796ffc6b58629c6356133",
+        "author": "jbrockmendel",
+        "date": "2025-07-07T16:42:38Z",
+        "message": "TST: option_context bug on Mac GH#58055 (#61779)"
+    },
+    {
+        "sha": "d21ad1a375a76bf45305c8747f4cb196c14b0260",
+        "author": "jbrockmendel",
+        "date": "2025-07-07T16:39:58Z",
+        "message": "PERF: avoid object-dtype path in ArrowEA._explode (#61786)\n\n* PERF: avoid object-dtype path in ArrowEA._explode\n\n* typo fixup"
+    },
+    {
+        "sha": "ff8a60733b059382d6f56a090beb95ab6d741482",
+        "author": "Joris Van den Bossche",
+        "date": "2025-07-07T16:36:05Z",
+        "message": "DOC: prepare 2.3.1 whatsnew notes for release (#61794)"
+    },
+    {
+        "sha": "be2cb8c0017b05eeb3b94407504a0207cab96be6",
+        "author": "ChiLin Chiu",
+        "date": "2025-07-07T16:29:16Z",
+        "message": "CLN: remove and udpate for outdated _item_cache (#61789)\n\n* CLN: remove and udpate for outdated _item_cache\n\n* CLN: remove outdated _item_cache in comment\n\n* CLN: rollback unittest unralted to _item_cache"
+    },
+    {
+        "sha": "b9d57323ce6b8a640e98db8345fac1a076c139be",
+        "author": "Christine P. Chai",
+        "date": "2025-07-07T16:21:14Z",
+        "message": "DOC: Add link to WebGL in pandas ecosystem (#61790)"
+    },
+    {
+        "sha": "ebca3c56c1f9454ef5d2de5bb19ce138e1619504",
+        "author": "Joris Van den Bossche",
+        "date": "2025-07-07T13:41:24Z",
+        "message": "TST: update expected dtype for sum of decimals with pyarrow 21+ (#61799)"
+    },
+    {
+        "sha": "cf1a11c1b49d040f7827f30a1a16154c80c552a7",
+        "author": "jbrockmendel",
+        "date": "2025-07-07T13:15:03Z",
+        "message": "BUG[string]: incorrect index downcast in DataFrame.join (#61771)\n\nCo-authored-by: Joris Van den Bossche <jorisvandenbossche@gmail.com>"
+    }
+]
